@@ -1,8 +1,8 @@
-from circlepacker.domain.solution_domain import DesignVariable
-from typing import List
+from circlepacker.domain.variables import DesignVariable
+from typing import List, Dict
 
 
-class Model():
+class Model:
     def __init__(self):
         pass
 
@@ -16,4 +16,3 @@ class Model():
 
     def set_design_variables(self, new_variable_values: Dict[str, float]) -> None:
         raise NotImplementedError()
-    

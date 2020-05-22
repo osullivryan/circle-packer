@@ -1,13 +1,13 @@
 import math
 from typing import List, Dict
-from circlepacker.domain.solution_domain import DesignVariable
+from circlepacker.domain.variables import DesignVariable
 from circlepacker.domain.model import Model
 
 
 class Circle(Model):
     def __init__(self, x: DesignVariable, y: DesignVariable, radius: float) -> None:
-        self.x = DesignVariable.val
-        self.y = DesignVariable.val
+        self.x = x
+        self.y = y
         self.radius = radius
 
     @property
