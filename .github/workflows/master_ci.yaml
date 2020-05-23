@@ -25,9 +25,9 @@ jobs:
         id: cache
         with:
           path: ~/.venv
-          key: poetry-${{ hashFiles('**/poetry.lock') }}
+          key: poetrycache-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
-            poetry-${{ hashFiles('**/poetry.lock') }}
+            poetrycache-${{ hashFiles('**/poetry.lock') }}
 
       - name: Set Poetry Configuration for install
         run: |
