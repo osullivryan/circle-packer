@@ -33,6 +33,8 @@ def max_distance(xy_array, radii):
 def cost(xy_pairs, *args) -> float:
     xy_array = np.reshape(xy_pairs, (-1, 2))
     radii = np.array([args]).flatten()
+    if np.any(radii <= 0):
+        raise AssertionError(f"One of your radii is less than zero: {radii}")
 
     def final_cost():
         return np.max(overlapping_area(xy_array, radii)) + np.max(
