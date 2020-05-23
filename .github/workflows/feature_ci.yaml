@@ -24,7 +24,7 @@ jobs:
       - name: Install Poetry
         uses: dschep/install-poetry-action@v1.2
 
-      - name: Cache Poetry virtualenv
+      - name: Cache Poetry venv
         uses: actions/cache@v1
         id: cache
         with:
@@ -35,8 +35,8 @@ jobs:
 
       - name: Set Poetry Configuration for install
         run: |
-          poetry config settings.virtualenvs.in-project false
-          poetry config settings.virtualenvs.path ~/.venv
+          poetry config virtualenvs.create false
+          poetry config virtualenvs.path ~/.venv
 
       - name: Install Project Dependencies if needed.
         run: poetry install
@@ -48,4 +48,4 @@ jobs:
           poetry run mypy src/
 
       - name: Test Code
-        run: poetry run pytest --cov .
+        run: poetry run pytest

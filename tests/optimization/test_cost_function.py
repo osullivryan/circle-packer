@@ -47,6 +47,7 @@ def test_negative_radii_fail():
     with pytest.raises(AssertionError):
         cost(xy, radii)
 
+
 def test_base_optimization():
     bounds = [(-20.0, 20.0), (-20.0, 20.0)]
     radii = [10.0, 10.0]
