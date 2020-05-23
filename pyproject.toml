@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "circlepacker"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Ryan O'Sullivan <osullivryan@gmail.com>"]
 

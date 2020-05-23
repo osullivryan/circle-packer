@@ -1,6 +1,7 @@
 import pytest
 import numpy as np
 from circlepacker.optimization.solver import cost, max_distance, overlapping_area
+import scipy
 
 
 @pytest.fixture()
@@ -45,3 +46,12 @@ def test_negative_radii_fail():
 
     with pytest.raises(AssertionError):
         cost(xy, radii)
+
+def test_base_optimization():
+    bounds = [(-20.0, 20.0), (-20.0, 20.0)]
+    radii = [10.0, 10.0]
+
+    res = scipy.optimize.differential_evolution(cost, bounds, args=(*radii,))
+
+    # Two circles with radius 10 should have a final cost of the sum of both their radii
+    assert res.fun == pytest.approx(20.0, 0.01)
