@@ -4,3 +4,4 @@ __pycache__/
 *.whl
 *.venv
 *.vscode
+.mypy_cache/
