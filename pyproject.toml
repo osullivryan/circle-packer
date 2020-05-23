@@ -8,6 +8,8 @@ authors = ["Ryan O'Sullivan <osullivryan@gmail.com>"]
 python = "^3.7"
 scipy = "^1.4.1"
 uvicorn = "^0.11.5"
+pydantic = "^1.5.1"
+fastapi = "^0.54.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.4.2"

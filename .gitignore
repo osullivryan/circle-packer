@@ -7,3 +7,7 @@ __pycache__/
 .mypy_cache/
 src/circlepacker.egg-info/PKG-INFO
 src/circlepacker.egg-info/SOURCES.txt
+*.egg-info
+src/circlepacker.egg-info/PKG-INFO
+src/circlepacker.egg-info/requires.txt
+src/circlepacker.egg-info/SOURCES.txt
