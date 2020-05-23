@@ -1,4 +1,5 @@
 README.md
+setup.cfg
 setup.py
 src/circlepacker/__init__.py
 src/circlepacker/__main__.py

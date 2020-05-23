@@ -5,3 +5,5 @@ __pycache__/
 *.venv
 *.vscode
 .mypy_cache/
+src/circlepacker.egg-info/PKG-INFO
+src/circlepacker.egg-info/SOURCES.txt
