@@ -45,3 +45,45 @@ jobs:
 
       - name: Test Code
         run: poetry run pytest
+  publish:
+    name: Publishing
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Poetry
+        uses: dschep/install-poetry-action@v1.2
+
+      - name: Cache Poetry venv
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ~/.venv
+          key: poetrycache-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            poetrycache-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Set Poetry Configuration for install
+        run: |
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.path ~/.venv
+
+      - name: Install Project Dependencies if needed.
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: poetry install
+
+      - name: Build
+        run: poetry build
+
+      - name: Release to PyPi
+        env:
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_KEY }}
+        run: poetry publish

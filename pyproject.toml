@@ -1,8 +1,20 @@
 [tool.poetry]
 name = "circlepacker"
-version = "0.1.2"
-description = ""
+version = "0.2.0"
+description = "A service for computing circle packing"
 authors = ["Ryan O'Sullivan <osullivryan@gmail.com>"]
+license = "GNU"
+readme = "README.md"
+homepage = "https://github.com/osullivryan/circle-packer"
+repository = "https://github.com/osullivryan/circle-packer"
+keywords = ["circlepacking", "optimization"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+include = [
+    "LICENSE",
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
