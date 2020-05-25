@@ -1,7 +1,28 @@
 import numpy as np
 import scipy.optimize
 import scipy.spatial
+from circlepacker.domain.contracts import ServiceSolve
 import warnings
+from typing import List, Tuple
+
+
+def create_bounds(
+    service_input: ServiceSolve,
+) -> Tuple[List[Tuple[float, float]], List[float]]:
+
+    n_dvs = 2 * sum(service_input.count)
+    bound_size = sum(
+        [a * b for a, b in zip(service_input.diameters, service_input.count)]
+    )
+    bounds = [(-1 * bound_size, bound_size) for _ in range(n_dvs)]
+
+    radii = [
+        d / 2.0
+        for i, d in enumerate(service_input.diameters)
+        for _ in range(service_input.count[i])
+    ]
+
+    return bounds, radii
 
 
 def overlapping_area(xy_array, radii):
