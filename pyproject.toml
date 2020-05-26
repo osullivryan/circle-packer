@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "circlepacker"
-version = "0.2.3"
+version = "0.2.4"
 description = "A service for computing circle packing"
 authors = ["Ryan O'Sullivan <osullivryan@gmail.com>"]
 license = "GNU"
@@ -22,7 +22,6 @@ scipy = "^1.4.1"
 uvicorn = "^0.11.5"
 pydantic = "^1.5.1"
 fastapi = "^0.54.2"
-mangum = "^0.9.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.4.2"
