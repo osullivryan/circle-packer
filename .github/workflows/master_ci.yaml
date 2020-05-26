@@ -89,7 +89,7 @@ jobs:
         run: poetry publish
 
   publish_docker:
-    name: Publishing to Pypi
+    name: Publishing to Docker
     needs: [test, publish_pypi]
     runs-on: ubuntu-latest
     steps:
@@ -102,7 +102,7 @@ jobs:
       - name: Build and Push to Docker
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_HUB }}
           repository: ${{ secrets.DOCKER_REPO }}
           tags: latest
