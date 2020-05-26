@@ -68,3 +68,10 @@ def cost(xy_pairs, *args) -> float:
         )
 
     return final_cost()
+
+
+def direct_solver(service_input: ServiceSolve) -> np.array:
+    bounds, radii = create_bounds(service_input)
+
+    res = scipy.optimize.differential_evolution(cost, bounds, args=(*radii,))
+    return res.x
